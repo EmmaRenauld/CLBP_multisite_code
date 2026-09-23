@@ -4,8 +4,8 @@
 # in the link and it becomes broken for other users.
 #
 # Inputs:
-#   Source: Mano-BrainNetworkChange, site 1
-#     Names are, for instance: sub_01_control_site_1
+#   Source: Mano-BrainNetworkChange, site 2
+#     Names are, for instance: sub_01_control_site_2
 #     All subjects are two-digits
 #
 # Output: bids/sub-ManoA*
@@ -16,7 +16,7 @@
 
 bids="$HOME/projects/def-pascalt-ab/ProjectCLBP_multisite/bids"
 
-main_folder=CLBP_Databases/Mano-BrainNetworkChange/Site1
+main_folder=CLBP_Databases/Mano-BrainNetworkChange/Site2
 source_path="$HOME/projects/def-pascalt-ab/$main_folder"
 
 # One .. to get out of bids, another to get out of our Project.
@@ -35,7 +35,7 @@ do
     number=${number:0:2}
 
     # --- New name
-    new_name=sub-ManoA$number
+    new_name=sub-ManoB$number
     echo "$old_name ----> $new_name"
 
     # --- Folder
@@ -68,18 +68,17 @@ do
 done
 
 
-echo "Now removing rejected subjects..."
+echo "Now removing rejected subjects"
 
 # HC
-mv $bids/sub-ManoA08 $bids/rejected_ManoA08_VASnotNull
-mv $bids/sub-ManoA35 $bids/rejected_ManoA35_VASnotNull
+mv $bids/sub-ManoB09 $bids/rejected_ManoB09_duration
+mv $bids/sub-ManoB14 $bids/rejected_ManoB14_duration
+mv $bids/sub-ManoB15 $bids/rejected_ManoB15_duration
+mv $bids/sub-ManoB16 $bids/rejected_ManoB16_duration
+mv $bids/sub-ManoB17 $bids/rejected_ManoB17_duration
 
 # CBP
-mv $bids/sub-ManoA51 $bids/rejected_ManoA51_VAS0
-mv $bids/sub-ManoA56 $bids/rejected_ManoA56_VAS0
-mv $bids/sub-ManoA58 $bids/rejected_ManoA58_VAS0
-mv $bids/sub-ManoA59 $bids/rejected_ManoA59_VAS0
+mv $bids/sub-ManoB27 $bids/rejected_ManoB27_VAS0
 
-
-echo "Done. Please verify the symlinks: tree $bids/*ManoA*"
+echo "Done. Please verify the symlinks: tree $bids/*ManoB* "
 
