@@ -55,7 +55,7 @@ do
     old_anat=$source_path/$old_anat_name
     old_anat_relative=../../$relative_path/$old_anat_name
 
-    new_anat=$bids/$new_name/anat/${new_name}_T1w.nii.gz
+    new_anat=$bids/$new_name/anat/${new_name}_T1w.nii
 
     if [ ! -f $old_anat ]
     then

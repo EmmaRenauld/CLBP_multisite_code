@@ -20,11 +20,13 @@ def create_parser():
 
     parser.add_argument("subject",
                         help="Subject name to display as the figure title.")
-    parser.add_argument("volume", dest='volume_filename',
+    parser.add_argument("volume_filename",
                         help="Input 3D volume (.nii, .nii.gz, .mgz, or .mgh).")
-    parser.add_argument("output", help="Output PNG filename.")
+    parser.add_argument("output_filename",
+                        help="Output PNG filename.")
     parser.add_argument("--overlay", dest='overlay_filename',
                         help="Optional binary mask to display as a contour.")
+    return parser
 
 
 def load_volume(filename):

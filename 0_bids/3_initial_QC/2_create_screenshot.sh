@@ -16,17 +16,17 @@ bids_path=~/projects/def-pascalt-ab/ProjectCLBP_multisite/bids
 derivative_path=~/projects/def-pascalt-ab/ProjectCLBP_multisite/derivatives/0_bids_and_QC/
 screenshots_path=$derivative_path/2_screenshots
 
+echo "Creating output directory: $screenshot_path"
+mkdir -p $screenshots_path
 
-mkdir $screenshots_path
-
-for f in $bids_path/*$prefix*
+for f in $bids_path/sub-$prefix*
 do
 
     subj=${f#$bids_path/}
     subj=${subj%%_*}
 
     t1=$bids_path/$subj/anat/*T1w.nii*
-    out_png=$screenshot_path/${subj}.png
+    out_png=$screenshots_path/${subj}.png
 
     if [ -f $out_png ]
     then

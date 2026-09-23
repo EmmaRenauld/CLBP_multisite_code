@@ -17,6 +17,7 @@ bids_path=~/projects/def-pascalt-ab/ProjectCLBP_multisite/bids
 derivative_path=~/projects/def-pascalt-ab/ProjectCLBP_multisite/derivatives/0_bids_and_QC
 output_path=$derivative_path/1_mrinfo/
 
+echo "Creating output directory: $output_path"
 mkdir -p $output_path
 
 echo "Reading all headers for database: $prefix"
