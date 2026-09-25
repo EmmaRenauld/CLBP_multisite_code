@@ -1,1 +1,4 @@
-.idea/__pycache__/*.sif*.lic
+.idea/
+__pychache__/
+*.sif
+*.lic
