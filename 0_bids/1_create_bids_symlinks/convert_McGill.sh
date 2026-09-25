@@ -70,5 +70,9 @@ do
 done
 
 
+<<<<<<< HEAD
 echo "Done. Please verify the symlinks: tree $bids/sub-BPS*"
+=======
+echo "Done. Please verify the symlinks: tree $bids/sub-McGill*"
+>>>>>>> a51110e (McGill)
 

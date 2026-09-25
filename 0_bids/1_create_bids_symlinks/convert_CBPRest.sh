@@ -74,5 +74,5 @@ do
 done
 
 
-echo "Done. Please verify the symlinks: tree $bids/*ManoA*"
+echo "Done. Please verify the symlinks: tree $bids/*CBPRest*"
 
