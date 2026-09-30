@@ -7,7 +7,7 @@
 #    Source: NucleusAccumbens
 #       Names are, for instance: cbp001 or healthy001
 #
-# Output: bids/sub-NAc or bids/sub-NAh, because healthy controls and CLBP have overlapping numbers.
+# Output: bids/sub-NAc or bids/sub-NAh, because healthy controls and CLBP_multisite have overlapping numbers.
 #
 # author: Emmanuelle Renauld
 # ---------------------------------------
