@@ -15,7 +15,8 @@ from utils.viz import create_screenshot
 
 
 def create_parser():
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser(description=__doc__,
+                                     formatter_class=argparse.RawTextHelpFormatter)
 
     parser.add_argument("subject",
                         help="Subject name to display as the figure title.")
