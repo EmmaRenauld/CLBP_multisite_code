@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "CLBP_multisite"
+version = "0.1.0"
+description = "Emma's code for the CLBP project"
+requires-python = ">=3.9"
+
+[tool.setuptools.packages.find]
+where = ["python"]
