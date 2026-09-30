@@ -2,3 +2,4 @@
 __pychache__/
 *.sif
 *.lic
+*.egg-info/
