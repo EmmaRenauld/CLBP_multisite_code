@@ -19,6 +19,20 @@ heatmap = LinearSegmentedColormap.from_list(
 )
 
 
+def _create_arg_parser():
+    p = argparse.ArgumentParser(description=__doc__,
+                                formatter_class=argparse.RawTextHelpFormatter)
+    p.add_argument("subject",
+                   help="Subject name to display as the figure title.")
+    p.add_argument("volume1",
+                   help="First input 3D volume.")
+    p.add_argument("volume2",
+                   help="Second input 3D volume.")
+    p.add_argument("output",
+                   help="Output PNG filename.")
+    return p
+
+
 def load_volume(filename):
     """
     Load a NIfTI or FreeSurfer MGZ/MGH volume.
@@ -197,18 +211,8 @@ def save_screenshot(subject, volume1,
 
 
 def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-
-    parser.add_argument("subject",
-                        help="Subject name to display as the figure title.")
-    parser.add_argument("volume1",
-                        help="First input 3D volume.")
-    parser.add_argument("volume2",
-                        help="Second input 3D volume.")
-    parser.add_argument("output",
-                        help="Output PNG filename.")
-
-    args = parser.parse_args()
+    p = _create_arg_parser()
+    args = p.parse_args()
 
     print("Loading volumes...")
     volume1 = load_volume(args.volume1)

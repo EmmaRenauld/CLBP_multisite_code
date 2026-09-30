@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "CLBP_multisite"
+version = "0.1.0"
+description = "Emma's code for the CLBP project"
+requires-python = ">=3.9"
+dependencies = [
+    "numpy",
+    "pandas",
+    "nibabel",
+]
+
+[tool.setuptools.packages.find]
+where = ["python"]
+
+[project.scripts]
+clbp_compare_screenshots_two_volumes = "CLBP_multisite.clbp_compare_screenshots_two_volumes:main"
+clbp_rescale_image = "CLBP_multisite.clbp_rescale_image:main"
+clbp_save_screenshots_volume = "CLBP_multisite.clbp_save_screenshots_volume:main"

@@ -7,6 +7,20 @@ import nibabel as nib
 import numpy as np
 
 
+def _create_arg_parser():
+    p = argparse.ArgumentParser(description=__doc__,
+                                formatter_class = argparse.RawTextHelpFormatter)
+    p.add_argument("input",
+                        help="Input 3D volume.")
+    p.add_argument("output",
+                        help="Output 3D volume.")
+    p.add_argument("min", type=int,
+                        help="Min of new range.")
+    p.add_argument("max", type=int,
+                        help="Max of new range.")
+    return p
+
+
 def load_volume(filename):
     """
     Load a NIfTI or FreeSurfer MGZ/MGH volume.
@@ -32,17 +46,8 @@ def load_volume(filename):
 
 
 def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("input",
-                        help="Input 3D volume.")
-    parser.add_argument("output",
-                        help="Output 3D volume.")
-    parser.add_argument("min", type=int,
-                        help="Min of new range.")
-    parser.add_argument("max", type=int,
-                        help="Max of new range.")
-
-    args = parser.parse_args()
+    p = _create_arg_parser()
+    args = p.parse_args()
 
     img, data = load_volume(args.input)
 
