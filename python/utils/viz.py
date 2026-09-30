@@ -4,10 +4,11 @@ import matplotlib.pyplot as plt
 
 
 def create_screenshot(volume, overlay=None):
-    # Middle voxel in each dimension
+    # Middle voxel coronal
+    # A bit higher than middle in axial
     middle_x = volume.shape[0] // 2
     middle_y = volume.shape[1] // 2
-    middle_z = volume.shape[2] // 2
+    middle_z = 2 * volume.shape[2] // 3
 
     # Two sagittal slices: middle - 10 and middle + 10
     sagittal_minus = middle_x - 10
@@ -32,6 +33,8 @@ def create_screenshot(volume, overlay=None):
     axial = volume[:, :, middle_z].T
     sagittal_minus_image = volume[sagittal_minus, :, :].T
     sagittal_plus_image = volume[sagittal_plus, :, :].T
+    vmax = volume.max()
+    vmin = volume.min()
 
     if overlay is not None:
         overlay = overlay > 0
@@ -46,7 +49,7 @@ def create_screenshot(volume, overlay=None):
 
     # Coronal
     axes[0, 0].imshow(coronal, cmap="gray",
-                      origin="lower")
+                      origin="lower", vmin=vmin, vmax=vmax)
     if overlay is not None:
         axes[0, 0].contour(coronal_overlay,
                            levels=[0.5],
@@ -56,7 +59,7 @@ def create_screenshot(volume, overlay=None):
 
     # Axial
     axes[0, 1].imshow(axial, cmap="gray",
-                      origin="lower")
+                      origin="lower", vmin=vmin, vmax=vmax)
     if overlay is not None:
         axes[0, 1].contour(axial_overlay,
                            levels=[0.5],
@@ -66,7 +69,7 @@ def create_screenshot(volume, overlay=None):
 
     # Sagittal - 10
     axes[1, 0].imshow(sagittal_minus_image,
-                      cmap="gray", origin="lower")
+                      cmap="gray", origin="lower", vmin=vmin, vmax=vmax)
     if overlay is not None:
         axes[1, 0].contour(sagittal_minus_overlay,
                            levels=[0.5],
@@ -76,7 +79,7 @@ def create_screenshot(volume, overlay=None):
 
     # Sagittal + 10
     axes[1, 1].imshow(sagittal_plus_image,
-                      cmap="gray", origin="lower")
+                      cmap="gray", origin="lower", vmin=vmin, vmax=vmax)
     if overlay is not None:
         axes[1, 1].contour(sagittal_plus_overlay,
                            levels=[0.5],
