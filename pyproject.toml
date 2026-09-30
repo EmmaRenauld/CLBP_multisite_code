@@ -18,5 +18,6 @@ where = ["python"]
 
 [project.scripts]
 clbp_compare_screenshots_two_volumes = "CLBP_multisite.clbp_compare_screenshots_two_volumes:main"
+clbp_plot_stats = "CLBP_multisite.clbp_plot_stats:main"
 clbp_rescale_image = "CLBP_multisite.clbp_rescale_image:main"
 clbp_save_screenshots_volume = "CLBP_multisite.clbp_save_screenshots_volume:main"
