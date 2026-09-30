@@ -11,7 +11,7 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import nibabel as nib
 
-from utils.viz import create_screenshot
+from CLBP_multisite.utils.viz import create_screenshot
 
 
 def create_parser():
