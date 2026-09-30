@@ -7,6 +7,11 @@ name = "CLBP_multisite"
 version = "0.1.0"
 description = "Emma's code for the CLBP project"
 requires-python = ">=3.9"
+dependencies = [
+    "numpy",
+    "pandas",
+    "nibabel",
+]
 
 [tool.setuptools.packages.find]
 where = ["python"]
