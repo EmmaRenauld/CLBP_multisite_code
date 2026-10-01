@@ -12,12 +12,14 @@ def read_table(filename, sort=True):
     if not filename.exists():
         raise FileNotFoundError(f"File not found: {filename}")
 
+    na_values = ["#N/A", "#REF", ""]
+
     if suffix == ".csv":
-        table = pd.read_csv(filename)
+        table = pd.read_csv(filename, na_values=na_values)
     elif suffix in [".xlsx", ".xls"]:
-        table = pd.read_excel(filename)
+        table = pd.read_excel(filename, na_values=na_values)
     elif suffix == ".tsv":
-        table = pd.read_csv(filename, sep="\t")
+        table = pd.read_csv(filename, sep="\t", na_values=na_values)
     else:
         raise ValueError(
             f"Unsupported file format: {filename.suffix}. "
